@@ -1,11 +1,12 @@
 
 export const rapidApiKey = "f691f67baemsh88e4e411b73a7d8p18ba59jsn03d892d8cae2";
 export const sliderImages = [
-    require('../assets/images/slide1.png'),
-    require('../assets/images/slide3.png'),
-    require('../assets/images/slide2.png'),
-    require('../assets/images/slide4.png'),
-    require('../assets/images/slide5.png'),
+    require('../assets/images/slide1a.jpg'),
+    //Image by pikisuperstar</a> on Freepik
+    require('../assets/images/slide3a.png'),
+    require('../assets/images/slide2a.png'),
+    require('../assets/images/slide4a.png'),
+    require('../assets/images/slide5a.png'),
 ]
 export const bodyParts = [
     {

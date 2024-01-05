@@ -25,7 +25,7 @@ export default function Home() {
                         style={{fontSize: hp(4.5)}}
                         className="font-bold tracking-wider text-rose-500"
                     >
-                        WORKOUT
+                        DANCE
                     </Text>
                 </View>
 
