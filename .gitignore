@@ -44,3 +44,5 @@ expo-env.d.ts
 /.idea/modules.xml
 /patches/react-native+0.72.6.patch
 /.idea/vcs.xml
+/.idea/dancetime-rewind.iml
+/.idea/workspace.xml
