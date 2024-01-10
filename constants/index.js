@@ -11,45 +11,30 @@ export const sliderImages = [
 export const bodyParts = [
     {
         name: '70s',
-        image: require('../assets/images/danceCategory/70sSihouette.jpg'),
+        image: require('../assets/images/danceCategory/70s.png'),
     },
     {
-        name: 'cardio',
-        image: require('../assets/images/cardio.png'),
+        name: '80s',
+        image: require('../assets/images/danceCategory/80s.png'),
     },
 
     {
-        name: 'lower arms',
-        image: require('../assets/images/lowerArms.png'),
+        name: '90s',
+        image: require('../assets/images/danceCategory/90s.png'),
     },
     {
-        name: 'lower legs',
-        image: require('../assets/images/lowerLegs.png'),
+        name: '00s',
+        image: require('../assets/images/danceCategory/00s.png'),
     },
     {
-        name: 'chest',
-        image: require('../assets/images/chest.png'),
+        name: '10s',
+        image: require('../assets/images/danceCategory/10s.png'),
     },
     {
-        name: 'neck',
-        image: require('../assets/images/neck.png'),
+        name: '20s',
+        image: require('../assets/images/danceCategory/20s.png'),
     },
-    {
-        name: 'shoulders',
-        image: require('../assets/images/shoulders.png'),
-    },
-    {
-        name: 'upper arms',
-        image: require('../assets/images/upperArms.png'),
-    },
-    {
-        name: 'upper legs',
-        image: require('../assets/images/upperLegs.png'),
-    },
-    {
-        name: 'waist',
-        image: require('../assets/images/waist.png'),
-    }
+
 ]
 export const demoExercises = [
     {
