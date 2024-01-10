@@ -10,8 +10,8 @@ export const sliderImages = [
 ]
 export const bodyParts = [
     {
-        name: 'back',
-        image: require('../assets/images/back.png'),
+        name: '70s',
+        image: require('../assets/images/danceCategory/70sSihouette.jpg'),
     },
     {
         name: 'cardio',
