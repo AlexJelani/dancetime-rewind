@@ -46,7 +46,7 @@ export default function Exercises() {
             {/*exercises*/}
             <View className="mx-4 space-y-3 mt-4">
                 <Text style={{fontSize:hp(3)}} className="font-semibold text-neutral-700">
-                    {name} exercises
+                    {name} dances
                 </Text>
                 <View className="mb-18">
                     <ExerciseList data={exercises} />

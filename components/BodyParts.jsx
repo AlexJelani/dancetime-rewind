@@ -33,7 +33,7 @@ export default function BodyParts() {
 
     return (
         <View className="flex-1 mx-4">
-            <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'gray' }} className="font-semibold text-neutral-700">Exercises</Text>
+            <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'gray' }} className="font-semibold text-neutral-700">Dances</Text>
             <FlatList
                 data={bodyParts}
                 numColumns={2}
