@@ -1,52 +1,79 @@
-import { View, Text, FlatList, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
 import { Image as ExpoImage } from 'expo-image';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
-export default function ExerciseList({data}) {
+export default function ExerciseList({ data }) {
     const router = useRouter();
+
     return (
-        <View>
-            <FlatList
-                data={data}
-                numColumns={2}
-                keyExtractor={(item) => item.id.toString()}
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={{paddingBottom: 60, paddingTop: 20}}
-                columnWrapperStyle={{
-                    justifyContent: 'space-between'
-                }}
-                renderItem={({item, index})=> <ExerciseCard router={router} index={index} item={item} />}
-            />
-        </View>
-    )
+        <FlatList
+            data={data}
+            keyExtractor={(item) => item.id.toString()}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.listContainer}
+            renderItem={({ item, index }) => <ExerciseCard router={router} index={index} item={item} />}
+        />
+    );
 }
 
-const ExerciseCard = ({item, router, index})=> {
-
+const ExerciseCard = ({ item, router, index }) => {
     return (
-        <Animated.View entering={FadeInDown.duration(400).delay(index*200).springify()}>
-            <TouchableOpacity onPress={()=> router.push({pathname: '/exerciseDetails', params: item})} className="flex py-3 space-y-2">
-                <View  className="bg-white shadow rounded-[25px]">
+        <Animated.View entering={FadeInDown.duration(400).delay(index * 200).springify()}>
+            <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>
+                <View style={styles.imageContainer}>
                     <ExpoImage
                         source={{ uri: item.gifUrl }}
                         contentFit='cover'
-                        style={{width: wp(44), height: wp(52)}}
-                        className="rounded-[25px]"
+                        style={styles.image}
                     />
                 </View>
 
-                <Text
-                    style={{fontSize: hp(1.7)}}
-                    className="text-neutral-700 font-semibold ml-1  tracking-wide"
-                >
-                    {
-                        item?.name?.length>20? item.name.slice(0,20)+'...': item.name
-                    }
-                </Text>
+                <View style={styles.textContainer}>
+                    <Text style={styles.title}>
+                        {item?.name?.length > 20 ? item.name.slice(0, 20) + '...' : item.name}
+                    </Text>
+                    {/* Add any other text or components you want here */}
+                </View>
             </TouchableOpacity>
         </Animated.View>
-    )
+    );
 }
+
+const styles = StyleSheet.create({
+    listContainer: {
+        paddingBottom: 60,
+        paddingTop: 20,
+    },
+    cardContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10,
+    },
+    imageContainer: {
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        borderRadius: 25,
+    },
+    image: {
+        width: wp(30),
+        height: wp(35),
+        borderRadius: 25,
+    },
+    textContainer: {
+        marginLeft: 10,
+        flex: 1,
+    },
+    title: {
+        fontSize: hp(1.7),
+        color: '#333',
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+});
