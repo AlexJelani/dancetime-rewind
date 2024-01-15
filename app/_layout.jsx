@@ -9,7 +9,7 @@ export default function _layout() {
                 headerShown:false
             }}
         >
-            <Stack.Screen name="exercises" options={{
+            <Stack.Screen name="dances" options={{
                 presentation:'fullScreenModal'
             }}/>
             <Stack.Screen

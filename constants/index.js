@@ -8,7 +8,7 @@ export const sliderImages = [
     require('../assets/images/slide4a.png'),
     require('../assets/images/slide5a.png'),
 ]
-export const bodyParts = [
+export const danceDecades = [
     {
         name: '70s',
         image: require('../assets/images/danceCategory/70s.png'),

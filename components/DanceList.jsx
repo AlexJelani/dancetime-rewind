@@ -5,7 +5,7 @@ import { Image as ExpoImage } from 'expo-image';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
-export default function ExerciseList({ data }) {
+export default function DanceList({ data }) {
     const router = useRouter();
 
     return (
@@ -14,12 +14,12 @@ export default function ExerciseList({ data }) {
             keyExtractor={(item) => item.id.toString()}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.listContainer}
-            renderItem={({ item, index }) => <ExerciseCard router={router} index={index} item={item} />}
+            renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item} />}
         />
     );
 }
 
-const ExerciseCard = ({ item, router, index }) => {
+const DanceCard = ({ item, router, index }) => {
     return (
         <Animated.View entering={FadeInDown.duration(400).delay(index * 200).springify()}>
             <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>

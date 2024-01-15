@@ -1,14 +1,14 @@
 import React from 'react';
 import {Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { bodyParts } from '../constants';
+import {danceDecades} from '../constants';
 import {LinearGradient} from "expo-linear-gradient";
 import {useRouter} from "expo-router";
 
-const BodyPartCard = ({ item, index, router }) => {
+const DanceDecadeCard = ({ item, index, router }) => {
     return (
         <TouchableOpacity
-            onPress={()=> router.push({pathname:"/exercises", params:item})}
+            onPress={()=> router.push({pathname:"/dances", params:item})}
             // style={{width:wp(44), height:hp(52)}}
             style={{height:150,width:150 }}
             className="flex justify-end p-4 mb-4"
@@ -28,14 +28,14 @@ const BodyPartCard = ({ item, index, router }) => {
     );
 };
 
-export default function BodyParts() {
+export default function DanceDecade() {
     const router = useRouter();
 
     return (
         <View className="flex-1 mx-4">
             <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'gray' }} className="font-semibold text-neutral-700">Dances</Text>
             <FlatList
-                data={bodyParts}
+                data={danceDecades}
                 numColumns={2}
                 keyExtractor={(item) => item.name}
                 showsVerticalScrollIndicator={false}
@@ -45,7 +45,7 @@ export default function BodyParts() {
                     marginHorizontal: 30, // Adjust the margin as needed
 
                 }}
-                renderItem={({ item, index }) => <BodyPartCard router={router} index={index} item={item} />}
+                renderItem={({ item, index }) => <DanceDecadeCard router={router} index={index} item={item} />}
             />
         </View>
     );

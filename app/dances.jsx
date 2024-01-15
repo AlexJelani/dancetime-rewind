@@ -5,13 +5,13 @@ import {fetchExercisesByBodypart} from '../api/exerciseDB';
 import {demoExercises} from "../constants";
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Ionicons from "react-native-vector-icons/Ionicons";
-import ExerciseList from "../components/ExerciseList";
+import DanceList from "../components/DanceList";
 import {ScrollView} from "react-native-virtualized-view";
 
 
-export default function Exercises() {
+export default function dances() {
     const router = useRouter();
-    const [exercises, setExercises] = useState(demoExercises);
+    const [dances, setDances] = useState(demoExercises);
     const item = useLocalSearchParams();
     console.log('got item', item);
 
@@ -21,10 +21,10 @@ export default function Exercises() {
         }
     }, [item]);
 
-    const getExercises = async (bodypart) => {
+    const getDances = async (bodypart) => {
             let data = await fetchExercisesByBodypart(bodypart);
             // console.log('got data', data);
-        setExercises(data)
+        setDances(data)
     };
 
     const {name} = item;
@@ -43,13 +43,13 @@ export default function Exercises() {
             >
                 <Ionicons name="caret-back-outline" size={hp(4)} color="white" />
             </TouchableOpacity>
-            {/*exercises*/}
+            {/*dances*/}
             <View className="mx-4 space-y-3 mt-4">
                 <Text style={{fontSize:hp(3)}} className="font-semibold text-neutral-700">
                     {name} dances
                 </Text>
                 <View className="mb-18">
-                    <ExerciseList data={exercises} />
+                    <DanceList data={dances} />
                 </View>
             </View>
         </ScrollView>
