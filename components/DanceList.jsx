@@ -1,12 +1,13 @@
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
-import { useRouter } from 'expo-router'
+import { useRouter} from 'expo-router'
 import { Image as ExpoImage } from 'expo-image';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 
 export default function DanceList({ data }) {
     const router = useRouter();
+
 
     return (
         <FlatList
@@ -20,12 +21,15 @@ export default function DanceList({ data }) {
 }
 
 const DanceCard = ({ item, router, index }) => {
+    const image = router.params?.image;
+
+
     return (
         <Animated.View entering={FadeInDown.duration(400).delay(index * 200).springify()}>
             <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>
                 <View style={styles.imageContainer}>
                     <ExpoImage
-                        source={{ uri: item.gifUrl }}
+                        source={{ uri:item.image }}
                         contentFit='cover'
                         style={styles.image}
                     />

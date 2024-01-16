@@ -50,7 +50,7 @@ export const demoExercises = [
             "Land softly with your feet shoulder-width apart, bending your knees to absorb the impact.",
             "Repeat for the desired number of repetitions."
         ],
-        "name": "astride jumps (male)",
+        "name": "the disco finger",
         "secondaryMuscles": [
             "quadriceps",
             "hamstrings",

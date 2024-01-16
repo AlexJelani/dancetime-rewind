@@ -5,10 +5,17 @@ import {danceDecades} from '../constants';
 import {LinearGradient} from "expo-linear-gradient";
 import {useRouter} from "expo-router";
 
+
 const DanceDecadeCard = ({ item, index, router }) => {
+
     return (
         <TouchableOpacity
-            onPress={()=> router.push({pathname:"/dances", params:item})}
+
+            onPress={() => {
+
+                // Navigate to the '/dances' route
+                router.push({ pathname: "/dances", params: { ...item, image: item.image } });
+            }}
             // style={{width:wp(44), height:hp(52)}}
             style={{height:150,width:150 }}
             className="flex justify-end p-4 mb-4"

@@ -1,8 +1,7 @@
 export default [
     {
         id: "0",
-        image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrEM-6gDUO7g1cdrNhBaqk_0nwxy6ILlIqsQ&usqp=CAU",
+        image: require('../assets/images/danceCategory/70s.png'),
         danceDecade: "70s",
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
