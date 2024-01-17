@@ -2,16 +2,19 @@ import React from 'react';
 import {Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {danceDecades} from '../constants';
-import {LinearGradient} from "expo-linear-gradient";
 import {useRouter} from "expo-router";
 
 
-const DanceDecadeCard = ({ item, index, router }) => {
+const DanceDecadeCard = ({ item, index, router, route }) => {
 
     return (
         <TouchableOpacity
 
             onPress={() => {
+                // Log the item.image to the console
+                console.log('Item Image:', item.image);
+                // Log the item.image to the console
+                console.log('Image URI:', item.image);
 
                 // Navigate to the '/dances' route
                 router.push({ pathname: "/dances", params: { ...item, image: item.image } });
@@ -21,7 +24,7 @@ const DanceDecadeCard = ({ item, index, router }) => {
             className="flex justify-end p-4 mb-4"
         >
             <Image source={item.image}
-                   resizeMode="cover"
+                   contentFit="cover"
                    // style={{width:wp(44), height:hp(52)}}
                    style={{height:150,width:150 }}
                    className="rounded-[35px] absolute"/>

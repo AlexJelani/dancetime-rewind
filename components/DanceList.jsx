@@ -1,9 +1,11 @@
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native'
 import React from 'react'
-import { useRouter} from 'expo-router'
+import { useRouter, useLocalSearchParams} from 'expo-router'
 import { Image as ExpoImage } from 'expo-image';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import {useRoute} from "@react-navigation/native";
+
 
 export default function DanceList({ data }) {
     const router = useRouter();
@@ -15,13 +17,12 @@ export default function DanceList({ data }) {
             keyExtractor={(item) => item.id.toString()}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.listContainer}
-            renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item} />}
+            renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item}   />}
         />
     );
 }
 
-const DanceCard = ({ item, router, index }) => {
-    const image = router.params?.image;
+const DanceCard = ({ item, index, router}) => {
 
 
     return (
@@ -29,8 +30,9 @@ const DanceCard = ({ item, router, index }) => {
             <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>
                 <View style={styles.imageContainer}>
                     <ExpoImage
-                        source={{ uri:item.image }}
-                        contentFit='cover'
+                        // source={{uri:image.uri}}
+                        source={require('../assets/images/danceCategory/90s.png')}
+                        resizeMode={"cover"}
                         style={styles.image}
                     />
                 </View>
@@ -45,6 +47,7 @@ const DanceCard = ({ item, router, index }) => {
         </Animated.View>
     );
 }
+
 
 const styles = StyleSheet.create({
     listContainer: {
@@ -68,7 +71,9 @@ const styles = StyleSheet.create({
     image: {
         width: wp(30),
         height: wp(35),
+        resizeMode:'contain',
         borderRadius: 25,
+
     },
     textContainer: {
         marginLeft: 10,

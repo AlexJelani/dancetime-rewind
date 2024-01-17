@@ -71,7 +71,7 @@ export const demoExercises = [
             "Continue stepping back and forth, maintaining a steady pace.",
             "Repeat for the desired duration or number of repetitions."
         ],
-        "name": "back and forth step",
+        "name": "The disco strut",
         "secondaryMuscles": [
             "quadriceps",
             "hamstrings",
