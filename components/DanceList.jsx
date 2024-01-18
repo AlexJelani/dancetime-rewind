@@ -4,11 +4,14 @@ import { useRouter, useLocalSearchParams} from 'expo-router'
 import { Image as ExpoImage } from 'expo-image';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import {useRoute} from "@react-navigation/native";
+import { useRoute } from '@react-navigation/native'; // Import useRoute from @react-navigation/native
+
 
 
 export default function DanceList({ data }) {
     const router = useRouter();
+    const route = useRoute(); // Use useRoute from @react-navigation/native
+
 
 
     return (
@@ -17,21 +20,28 @@ export default function DanceList({ data }) {
             keyExtractor={(item) => item.id.toString()}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.listContainer}
-            renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item}   />}
+            renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item} route={route}   />}
         />
     );
 }
 
-const DanceCard = ({ item, index, router}) => {
+const DanceCard = ({ item, index, router, route}) => {
+    const imageData = route.params; // Access the parameters passed
+    const imageUri = imageData && imageData.image;
 
+    console.log('Image Data:', imageData);
+    console.log('Image URI:', imageUri);
+    // Log the resolved source for ExpoImage
+    const imageSource = typeof imageUri === 'number' ? imageUri : { uri: imageUri };
+    console.log('Resolved Image Source:', imageSource);
 
     return (
         <Animated.View entering={FadeInDown.duration(400).delay(index * 200).springify()}>
             <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>
                 <View style={styles.imageContainer}>
                     <ExpoImage
-                        // source={{uri:image.uri}}
-                        source={require('../assets/images/danceCategory/90s.png')}
+                        source={imageSource }
+                        // source={require('../assets/images/danceCategory/90s.png')}
                         resizeMode={"cover"}
                         style={styles.image}
                     />

@@ -5,16 +5,18 @@ import {danceDecades} from '../constants';
 import {useRouter} from "expo-router";
 
 
-const DanceDecadeCard = ({ item, index, router, route }) => {
-
+const DanceDecadeCard = ({ item, index, router }) => {
+    console.log("Item:", item);
     return (
         <TouchableOpacity
-
             onPress={() => {
                 // Log the item.image to the console
                 console.log('Item Image:', item.image);
-                // Log the item.image to the console
-                console.log('Image URI:', item.image);
+                // // Log the item.image to the console
+                // console.log('Image URI:', item.image);
+
+                console.log("Item:", item);
+
 
                 // Navigate to the '/dances' route
                 router.push({ pathname: "/dances", params: { ...item, image: item.image } });
