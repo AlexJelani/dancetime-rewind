@@ -12,14 +12,13 @@ const DanceDecadeCard = ({ item, index, router }) => {
             onPress={() => {
                 // Log the item.image to the console
                 console.log('Item Image:', item.image);
-                // // Log the item.image to the console
-                // console.log('Image URI:', item.image);
+
 
                 console.log("Item:", item);
 
 
                 // Navigate to the '/dances' route
-                router.push({ pathname: "/dances", params: { ...item, image: item.image } });
+                router.push({ pathname: "/dances", params: { ...item} });
             }}
             // style={{width:wp(44), height:hp(52)}}
             style={{height:150,width:150 }}

@@ -20,27 +20,19 @@ export default function DanceList({ data }) {
             keyExtractor={(item) => item.id.toString()}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.listContainer}
-            renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item} route={route}   />}
+            renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item}  />}
         />
     );
 }
 
-const DanceCard = ({ item, index, router, route}) => {
-    const imageData = route.params; // Access the parameters passed
-    const imageUri = imageData && imageData.image;
+const DanceCard = ({ item, index, router}) => {
 
-    console.log('Image Data:', imageData);
-    console.log('Image URI:', imageUri);
-    // Log the resolved source for ExpoImage
-    const imageSource = typeof imageUri === 'number' ? imageUri : { uri: imageUri };
-    console.log('Resolved Image Source:', imageSource);
 
     return (
         <Animated.View entering={FadeInDown.duration(400).delay(index * 200).springify()}>
             <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>
                 <View style={styles.imageContainer}>
                     <ExpoImage
-                        source={imageSource }
                         // source={require('../assets/images/danceCategory/90s.png')}
                         resizeMode={"cover"}
                         style={styles.image}
@@ -70,7 +62,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     imageContainer: {
-        backgroundColor: 'white',
+        backgroundColor: 'red',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
