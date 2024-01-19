@@ -8,7 +8,7 @@ import { useRoute } from '@react-navigation/native'; // Import useRoute from @re
 
 
 
-export default function DanceList({ data }) {
+export default function DanceList({ data}) {
     const router = useRouter();
     const route = useRoute(); // Use useRoute from @react-navigation/native
 
@@ -34,6 +34,7 @@ const DanceCard = ({ item, index, router}) => {
                 <View style={styles.imageContainer}>
                     <ExpoImage
                         // source={require('../assets/images/danceCategory/90s.png')}
+                        // source={imageSource}
                         resizeMode={"cover"}
                         style={styles.image}
                     />
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     imageContainer: {
-        backgroundColor: 'red',
+        backgroundColor: 'white',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,

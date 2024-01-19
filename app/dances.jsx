@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Image, StatusBar, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StatusBar, Text, TouchableOpacity, View,} from 'react-native';
 import {useLocalSearchParams, useRouter} from 'expo-router';
 import {fetchExercisesByBodypart} from '../api/exerciseDB';
 import {demoExercises} from "../constants";
