@@ -32,12 +32,12 @@ const DanceCard = ({ item, index, router}) => {
         <Animated.View entering={FadeInDown.duration(400).delay(index * 200).springify()}>
             <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>
                 <View style={styles.imageContainer}>
-                    <ExpoImage
-                        // source={require('../assets/images/danceCategory/90s.png')}
-                        // source={imageSource}
-                        resizeMode={"cover"}
-                        style={styles.image}
-                    />
+                    {/*<ExpoImage*/}
+                    {/*    // source={require('../assets/images/danceCategory/90s.png')}*/}
+                    {/*    // source={imageSource}*/}
+                    {/*    resizeMode={"cover"}*/}
+                    {/*    style={styles.image}*/}
+                    {/*/>*/}
                 </View>
 
                 <View style={styles.textContainer}>

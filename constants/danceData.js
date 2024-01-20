@@ -1,7 +1,6 @@
 export default [
     {
         id: "0",
-        image: require('../assets/images/danceCategory/70s.png'),
         danceDecade: "70s",
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
@@ -56,7 +55,6 @@ export default [
     },
     {
         id: "1",
-        image: require('../assets/images/danceCategory/80s.png'),
         danceDecade: "80s",
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
@@ -104,7 +102,6 @@ export default [
     },
     {
         id: "2",
-        image: require('../assets/images/danceCategory/90s.png'),
         danceDecade: "90s",
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
@@ -152,7 +149,6 @@ export default [
     },
     {
         id: "3",
-        image: require('../assets/images/danceCategory/00s.png'),
         danceDecade: "2000s",
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
@@ -200,7 +196,6 @@ export default [
     },
     {
         id: "4",
-        image: require('../assets/images/danceCategory/10s.png'),
         danceDecade: "2010s",
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
@@ -248,7 +243,6 @@ export default [
     },
     {
         id: "5",
-        image: require('../assets/images/danceCategory/20s.png'),
         danceDecade: "2020s",
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",

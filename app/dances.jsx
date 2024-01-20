@@ -32,7 +32,8 @@ export default function dances() {
         <ScrollView>
                 <StatusBar style="light" />
                 <Image
-                    source={Array.isArray(item.image) ? item.image[0] : item.image}
+                    // source={Array.isArray(item.image) ? item.image[0] : item.image}
+                    source={{ uri: Array.isArray(item.image) ? item.image[0] : item.image }}
                     style={{ width: wp(100), height: hp(45) }}
                     className="rounded-b-[40px]"
                 />

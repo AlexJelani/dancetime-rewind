@@ -10,28 +10,28 @@ export const sliderImages = [
 ]
 export const danceDecades = [
     {
-        name: '70s',
+        name: '1970s',
         image: require('../assets/images/danceCategory/70s.png'),
     },
     {
-        name: '80s',
+        name: '1980s',
         image: require('../assets/images/danceCategory/80s.png'),
     },
 
     {
-        name: '90s',
+        name: '1990s',
         image: require('../assets/images/danceCategory/90s.png'),
     },
     {
-        name: '00s',
+        name: '2000s',
         image: require('../assets/images/danceCategory/00s.png'),
     },
     {
-        name: '10s',
+        name: '2010s',
         image: require('../assets/images/danceCategory/10s.png'),
     },
     {
-        name: '20s',
+        name: '2020s',
         image: require('../assets/images/danceCategory/20s.png'),
     },
 
