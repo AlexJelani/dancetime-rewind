@@ -40,7 +40,7 @@ export const demoExercises = [
     {
         "bodyPart": "cardio",
         "equipment": "body weight",
-        "gifUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a93c82108677535.5fc3684e78f67.gif",
+        "gifUrl": "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
         "id": "3220",
         "instructions": [
             "Stand with your feet shoulder-width apart.",
@@ -61,7 +61,7 @@ export const demoExercises = [
     {
         "bodyPart": "cardio",
         "equipment": "body weight",
-        "gifUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a93c82108677535.5fc3684e78f67.gif",
+        "gifUrl": "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
         "id": "3672",
         "instructions": [
             "Stand with your feet shoulder-width apart.",
