@@ -7,15 +7,12 @@ import {useRouter} from "expo-router";
 
 const DanceDecadeCard = ({ item, index, router }) => {
     console.log("Item:", item);
+
     return (
         <TouchableOpacity
             onPress={() => {
                 // Log the item.image to the console
                 console.log('Item Image:', item.image);
-
-
-                console.log("Item:", item);
-
 
                 // Navigate to the '/dances' route
                 router.push({ pathname: "/dances", params: { ...item} });
@@ -24,7 +21,7 @@ const DanceDecadeCard = ({ item, index, router }) => {
             style={{height:150,width:150 }}
             className="flex justify-end p-4 mb-4"
         >
-            <Image source={item.image}
+            <Image source={item?.image}
                    contentFit="cover"
                    // style={{width:wp(44), height:hp(52)}}
                    style={{height:150,width:150 }}

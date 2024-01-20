@@ -8,29 +8,31 @@ export const sliderImages = [
     require('../assets/images/slide4a.png'),
     require('../assets/images/slide5a.png'),
 ]
+
+
 export const danceDecades = [
-    {
+    {   id: '1',
         name: '1970s',
-        image: require('../assets/images/danceCategory/70s.png'),
+        image: require('../assets/images/danceCategory/70s.png') ,
     },
-    {
+    {   id: '2',
         name: '1980s',
         image: require('../assets/images/danceCategory/80s.png'),
     },
 
-    {
+    {   id: '3',
         name: '1990s',
         image: require('../assets/images/danceCategory/90s.png'),
     },
-    {
+    {   id: '4',
         name: '2000s',
         image: require('../assets/images/danceCategory/00s.png'),
     },
-    {
+    {   id: '5',
         name: '2010s',
         image: require('../assets/images/danceCategory/10s.png'),
     },
-    {
+    {   id: '6',
         name: '2020s',
         image: require('../assets/images/danceCategory/20s.png'),
     },

@@ -7,13 +7,15 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 import Ionicons from "react-native-vector-icons/Ionicons";
 import DanceList from "../components/DanceList";
 import {ScrollView} from "react-native-virtualized-view";
+import { ImageSourcePropType } from 'react-native';
+
 
 
 export default function dances() {
     const router = useRouter();
     const [dances, setDances] = useState(demoExercises);
     const item = useLocalSearchParams();
-    console.log('got item', item);
+    console.log('item.image:', item?.image);
 
     useEffect(() => {
         if (item) {
@@ -27,13 +29,14 @@ export default function dances() {
         setDances(data)
     };
 
-    const {name} = item;
+    const {name, image} = item;
+    // Check if the image is a URI or a number and create the appropriate source
+
     return (
         <ScrollView>
                 <StatusBar style="light" />
                 <Image
-                    // source={Array.isArray(item.image) ? item.image[0] : item.image}
-                    source={{ uri: Array.isArray(item.image) ? item.image[0] : item.image }}
+                    source={image}
                     style={{ width: wp(100), height: hp(45) }}
                     className="rounded-b-[40px]"
                 />
