@@ -1,16 +1,15 @@
-import { View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native'
+import { View, Text, FlatList, TouchableOpacity} from 'react-native'
 import React from 'react'
 import { useRouter, useLocalSearchParams} from 'expo-router'
-import { Image as ExpoImage } from 'expo-image';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Animated, { FadeInDown } from 'react-native-reanimated';
-import { useRoute } from '@react-navigation/native'; // Import useRoute from @react-navigation/native
+import { FontAwesome } from '@expo/vector-icons'; // Import FontAwesome from expo vector icons
+
 
 
 
 export default function DanceList({ data}) {
     const router = useRouter();
-    const route = useRoute(); // Use useRoute from @react-navigation/native
 
 
 
@@ -19,7 +18,7 @@ export default function DanceList({ data}) {
             data={data}
             keyExtractor={(item) => item.id.toString()}
             showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.listContainer}
+            // contentContainerStyle={styles.listContainer}
             renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item}  />}
         />
     );
@@ -27,24 +26,28 @@ export default function DanceList({ data}) {
 
 const DanceCard = ({ item, index, router}) => {
 
-
     return (
         <Animated.View entering={FadeInDown.duration(400).delay(index * 200).springify()}>
-            <TouchableOpacity onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} style={styles.cardContainer}>
-                <View style={styles.imageContainer}>
-                    {/*<ExpoImage*/}
-                    {/*    // source={require('../assets/images/danceCategory/90s.png')}*/}
-                    {/*    // source={imageSource}*/}
-                    {/*    resizeMode={"cover"}*/}
-                    {/*    style={styles.image}*/}
-                    {/*/>*/}
-                </View>
+            <TouchableOpacity
+                onPress={() => router.push({ pathname: '/exerciseDetails', params: item })}
+                className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+            >
+                {/* Replace 'imageSource' with the actual image source */}
+                {/*<Image source={imageSource} style="object-cover w-full rounded-t-lg h-48 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" />*/}
 
-                <View style={styles.textContainer}>
-                    <Text style={styles.title}>
+                <View className="flex flex-col justify-between p-4 leading-normal">
+                    <Text className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {item?.name?.length > 20 ? item.name.slice(0, 20) + '...' : item.name}
                     </Text>
+                    {/* Dummy subtext */}
+                    <Text className="mb-3 font-normal text-gray-600 dark:text-gray-400">7 steps</Text>
                     {/* Add any other text or components you want here */}
+                </View>
+                <View>
+                    {/* Play Icon Button */}
+                    <TouchableOpacity className="bg-blue-500 p-2 rounded-full">
+                        <FontAwesome name="play-circle" size={30} color="#fff" />
+                    </TouchableOpacity>
                 </View>
             </TouchableOpacity>
         </Animated.View>
@@ -52,40 +55,3 @@ const DanceCard = ({ item, index, router}) => {
 }
 
 
-const styles = StyleSheet.create({
-    listContainer: {
-        paddingBottom: 60,
-        paddingTop: 20,
-    },
-    cardContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    imageContainer: {
-        backgroundColor: 'white',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        borderRadius: 25,
-    },
-    image: {
-        width: wp(30),
-        height: wp(35),
-        resizeMode:'contain',
-        borderRadius: 25,
-
-    },
-    textContainer: {
-        marginLeft: 10,
-        flex: 1,
-    },
-    title: {
-        fontSize: hp(1.7),
-        color: '#333',
-        fontWeight: 'bold',
-        marginBottom: 5,
-    },
-});
