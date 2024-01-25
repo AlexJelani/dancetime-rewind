@@ -7,21 +7,14 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 import Ionicons from "react-native-vector-icons/Ionicons";
 import DanceList from "../components/DanceList";
 import {ScrollView} from "react-native-virtualized-view";
-import { LogBox } from 'react-native';
+import { ImageSourcePropType } from 'react-native';
 
-// Define the type for the item object
-interface ItemType {
-    name: string;
-    image: number ; // Adjust the type accordingly
-}
-// Add the following line to disable the specific warning
-LogBox.ignoreLogs(['Warning: Failed prop type']);
 
 
 export default function dances() {
     const router = useRouter();
     const [dances, setDances] = useState(demoExercises);
-    const item: ItemType = useLocalSearchParams();
+    const item = useLocalSearchParams();
     console.log('item.image:', item?.image);
 
     useEffect(() => {
