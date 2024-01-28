@@ -7,8 +7,11 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-nativ
 import Ionicons from "react-native-vector-icons/Ionicons";
 import DanceList from "../components/DanceList";
 import {ScrollView} from "react-native-virtualized-view";
-import { ImageSourcePropType } from 'react-native';
+import { LogBox } from 'react-native';
 
+
+// Add the following line to disable the specific warning
+LogBox.ignoreLogs(['Warning: Failed prop type']);
 
 
 export default function dances() {
