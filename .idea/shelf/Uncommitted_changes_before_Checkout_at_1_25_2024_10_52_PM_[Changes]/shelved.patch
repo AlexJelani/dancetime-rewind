@@ -1,0 +1,348 @@
+Index: tsconfig.json
+===================================================================
+diff --git a/tsconfig.json b/tsconfig.json
+deleted file mode 100644
+--- a/tsconfig.json	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ /dev/null	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
+@@ -1,12 +0,0 @@
+-{
+-  "extends": "expo/tsconfig.base",
+-  "compilerOptions": {
+-    "strict": false,
+-  },
+-  "include": [
+-    "**/*.ts",
+-    "**/*.tsx",
+-    ".expo/types/**/*.ts",
+-    "expo-env.d.ts"
+-  ]
+-}
+Index: app/dances.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {useEffect, useState} from 'react';\r\nimport {Image, StatusBar, Text, TouchableOpacity, View,} from 'react-native';\r\nimport {useLocalSearchParams, useRouter} from 'expo-router';\r\nimport {fetchExercisesByBodypart} from '../api/exerciseDB';\r\nimport {demoExercises} from \"../constants\";\r\nimport {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';\r\nimport Ionicons from \"react-native-vector-icons/Ionicons\";\r\nimport DanceList from \"../components/DanceList\";\r\nimport {ScrollView} from \"react-native-virtualized-view\";\r\n\r\n\r\nexport default function dances() {\r\n    const router = useRouter();\r\n    const [dances, setDances] = useState(demoExercises);\r\n    const item = useLocalSearchParams();\r\n    console.log('got item', item);\r\n\r\n    useEffect(() => {\r\n        if (item) {\r\n            // getExercisesxercises(item.name);\r\n        }\r\n    }, [item]);\r\n\r\n    const getDances = async (bodypart) => {\r\n            let data = await fetchExercisesByBodypart(bodypart);\r\n            // console.log('got data', data);\r\n        setDances(data)\r\n    };\r\n\r\n    const {name} = item;\r\n    return (\r\n        <ScrollView>\r\n                <StatusBar style=\"light\" />\r\n                <Image\r\n                    source={Array.isArray(item.image) ? item.image[0] : item.image}\r\n                    style={{ width: wp(100), height: hp(45) }}\r\n                    className=\"rounded-b-[40px]\"\r\n                />\r\n            <TouchableOpacity\r\n                onPress={()=> router.back()}\r\n                className=\"bg-rose-500 mx-4 absolute flex justify-center items-center pr-1 rounded-full\"\r\n                style={{height:hp(5.5), width:hp(5.5), marginTop:hp(7)}}\r\n            >\r\n                <Ionicons name=\"caret-back-outline\" size={hp(4)} color=\"white\" />\r\n            </TouchableOpacity>\r\n            {/*dances*/}\r\n            <View className=\"mx-4 space-y-3 mt-4\">\r\n                <Text style={{fontSize:hp(3)}} className=\"font-semibold text-neutral-700\">\r\n                    {name} dances\r\n                </Text>\r\n                <View className=\"mb-18\">\r\n                    <DanceList data={dances} />\r\n                </View>\r\n            </View>\r\n        </ScrollView>\r\n    );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/dances.jsx b/app/dances.jsx
+--- a/app/dances.jsx	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ b/app/dances.jsx	(date 1706190407527)
+@@ -7,13 +7,22 @@
+ import Ionicons from "react-native-vector-icons/Ionicons";
+ import DanceList from "../components/DanceList";
+ import {ScrollView} from "react-native-virtualized-view";
++import { LogBox } from 'react-native';
++
++// Define the type for the item object
++interface ItemType {
++    name: string;
++    image: number ; // Adjust the type accordingly
++}
++// Add the following line to disable the specific warning
++LogBox.ignoreLogs(['Warning: Failed prop type']);
+ 
+ 
+ export default function dances() {
+     const router = useRouter();
+     const [dances, setDances] = useState(demoExercises);
+-    const item = useLocalSearchParams();
+-    console.log('got item', item);
++    const item: ItemType = useLocalSearchParams();
++    console.log('item.image:', item?.image);
+ 
+     useEffect(() => {
+         if (item) {
+@@ -27,12 +36,14 @@
+         setDances(data)
+     };
+ 
+-    const {name} = item;
++    const {name, image} = item;
++    // Check if the image is a URI or a number and create the appropriate source
++
+     return (
+         <ScrollView>
+                 <StatusBar style="light" />
+                 <Image
+-                    source={Array.isArray(item.image) ? item.image[0] : item.image}
++                    source={image}
+                     style={{ width: wp(100), height: hp(45) }}
+                     className="rounded-b-[40px]"
+                 />
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files\r\n\r\n# dependencies\r\nnode_modules/\r\n\r\n# Expo\r\n.expo/\r\ndist/\r\nweb-build/\r\n\r\n# Native\r\n*.orig.*\r\n*.jks\r\n*.p8\r\n*.p12\r\n*.key\r\n*.mobileprovision\r\n\r\n# Metro\r\n.metro-health-check*\r\n\r\n# debug\r\nnpm-debug.*\r\nyarn-debug.*\r\nyarn-error.*\r\n\r\n# macOS\r\n.DS_Store\r\n*.pem\r\n\r\n# local env files\r\n.env*.local\r\n\r\n# typescript\r\n*.tsbuildinfo\r\n\r\n# @generated expo-cli sync-2b81b286409207a5da26e14c78851eb30d8ccbdb\r\n# The following patterns were generated by expo-cli\r\n\r\nexpo-env.d.ts\r\n# @end expo-cli\r\n/.idea/.gitignore\r\n/.idea/Fitness-app-exp.iml\r\n/.idea/modules.xml\r\n/patches/react-native+0.72.6.patch\r\n/.idea/vcs.xml\r\n/.idea/dancetime-rewind.iml\r\n/.idea/workspace.xml\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ b/.gitignore	(date 1706190407527)
+@@ -46,3 +46,4 @@
+ /.idea/vcs.xml
+ /.idea/dancetime-rewind.iml
+ /.idea/workspace.xml
++/.idea/misc.xml
+Index: components/DanceDecade.jsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport {Text, View, FlatList, TouchableOpacity, Image} from 'react-native';\r\nimport { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';\r\nimport {danceDecades} from '../constants';\r\nimport {useRouter} from \"expo-router\";\r\n\r\n\r\nconst DanceDecadeCard = ({ item, index, router }) => {\r\n    console.log(\"Item:\", item);\r\n    return (\r\n        <TouchableOpacity\r\n            onPress={() => {\r\n                // Log the item.image to the console\r\n                console.log('Item Image:', item.image);\r\n\r\n\r\n                console.log(\"Item:\", item);\r\n\r\n\r\n                // Navigate to the '/dances' route\r\n                router.push({ pathname: \"/dances\", params: { ...item} });\r\n            }}\r\n            // style={{width:wp(44), height:hp(52)}}\r\n            style={{height:150,width:150 }}\r\n            className=\"flex justify-end p-4 mb-4\"\r\n        >\r\n            <Image source={item.image}\r\n                   contentFit=\"cover\"\r\n                   // style={{width:wp(44), height:hp(52)}}\r\n                   style={{height:150,width:150 }}\r\n                   className=\"rounded-[35px] absolute\"/>\r\n\r\n            <Text\r\n                style={{ height: hp(10)}}\r\n                className=\"text-white font-semibold text-center tracking-wide\"\r\n            >{item?.name}</Text>\r\n\r\n        </TouchableOpacity>\r\n    );\r\n};\r\n\r\nexport default function DanceDecade() {\r\n    const router = useRouter();\r\n\r\n    return (\r\n        <View className=\"flex-1 mx-4\">\r\n            <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'gray' }} className=\"font-semibold text-neutral-700\">Dances</Text>\r\n            <FlatList\r\n                data={danceDecades}\r\n                numColumns={2}\r\n                keyExtractor={(item) => item.name}\r\n                showsVerticalScrollIndicator={false}\r\n                contentContainerStyle={{ paddingBottom: 50, paddingTop: 20 }}\r\n                columnWrapperStyle={{\r\n                    justifyContent: 'space-between',\r\n                    marginHorizontal: 30, // Adjust the margin as needed\r\n\r\n                }}\r\n                renderItem={({ item, index }) => <DanceDecadeCard router={router} index={index} item={item} />}\r\n            />\r\n        </View>\r\n    );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/components/DanceDecade.jsx b/components/DanceDecade.jsx
+--- a/components/DanceDecade.jsx	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ b/components/DanceDecade.jsx	(date 1706190407542)
+@@ -7,16 +7,13 @@
+ 
+ const DanceDecadeCard = ({ item, index, router }) => {
+     console.log("Item:", item);
++
+     return (
+         <TouchableOpacity
+             onPress={() => {
+                 // Log the item.image to the console
+                 console.log('Item Image:', item.image);
+ 
+-
+-                console.log("Item:", item);
+-
+-
+                 // Navigate to the '/dances' route
+                 router.push({ pathname: "/dances", params: { ...item} });
+             }}
+@@ -24,7 +21,7 @@
+             style={{height:150,width:150 }}
+             className="flex justify-end p-4 mb-4"
+         >
+-            <Image source={item.image}
++            <Image source={item?.image}
+                    contentFit="cover"
+                    // style={{width:wp(44), height:hp(52)}}
+                    style={{height:150,width:150 }}
+Index: constants/danceData.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>export default [\r\n    {\r\n        id: \"0\",\r\n        image: require('../assets/images/danceCategory/70s.png'),\r\n        danceDecade: \"70s\",\r\n        description: \"A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive\" +\r\n            \"fashion trends\",\r\n        dances: [\r\n            {\r\n                id: \"10\",\r\n                gifUrl:\r\n                    \"https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif\",\r\n                name: \"The Hustle\",\r\n                instructions:[\r\n                    \"Stand with feet shoulder-width apart\",\r\n                    \"Move side to side, shifting weight\",\r\n                    \"Add swinging arm movements\" ,\r\n                    \"Grove to the disco beat\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"11\",\r\n                gifUrl:\r\n                    \"https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif\",\r\n                name: \"The Disco Point\",\r\n                instructions:[\r\n                    \"Extend one arm straight, pointing fingers to the rhythm.\",\r\n                    \"Shift weight side to side.\",\r\n                    \"Add a slight bounce to your step.\",\r\n                    \"This move works best with funky disco tunes.\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"12\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Brooklyn Shuffle\",\r\n                instructions:[\r\n                    \"Strut forward with confidence.\",\r\n                    \"Combine with disco finger-pointing.\",\r\n                    \"Channel your inner John Travolta from 'Saturday Night Fever.'\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"13\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Robot Dance\",\r\n                instructions:[\r\n                    \"Move with stiff, mechanical motions.\",\r\n                    \"Mimic a robot's rigid movements.\",\r\n                    \"Perfect for funk and early hip-hop music.\"\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n    {\r\n        id: \"1\",\r\n        image: require('../assets/images/danceCategory/80s.png'),\r\n        danceDecade: \"80s\",\r\n        description: \"A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive\" +\r\n            \"fashion trends\",\r\n        dances: [\r\n            {\r\n                id: \"10\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Hustle\",\r\n                instructions:[\r\n                    \"Stand with feet shoulder-width apart\",\r\n                    \"Move side to side, shifting weight\",\r\n                    \"Add swinging arm movements\" ,\r\n                    \"Grove to the disco beat\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"11\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Disco Point\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"12\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Travolta Strut\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"13\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Robot Dance\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n    {\r\n        id: \"2\",\r\n        image: require('../assets/images/danceCategory/90s.png'),\r\n        danceDecade: \"90s\",\r\n        description: \"A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive\" +\r\n            \"fashion trends\",\r\n        dances: [\r\n            {\r\n                id: \"10\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Hustle\",\r\n                instructions:[\r\n                    \"Stand with feet shoulder-width apart\",\r\n                    \"Move side to side, shifting weight\",\r\n                    \"Add swinging arm movements\" ,\r\n                    \"Grove to the disco beat\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"11\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Disco Point\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"12\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Travolta Strut\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"13\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Robot Dance\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n    {\r\n        id: \"3\",\r\n        image: require('../assets/images/danceCategory/00s.png'),\r\n        danceDecade: \"2000s\",\r\n        description: \"A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive\" +\r\n            \"fashion trends\",\r\n        dances: [\r\n            {\r\n                id: \"10\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Hustle\",\r\n                instructions:[\r\n                    \"Stand with feet shoulder-width apart\",\r\n                    \"Move side to side, shifting weight\",\r\n                    \"Add swinging arm movements\" ,\r\n                    \"Grove to the disco beat\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"11\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Disco Point\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"12\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Travolta Strut\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"13\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Robot Dance\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n    {\r\n        id: \"4\",\r\n        image: require('../assets/images/danceCategory/10s.png'),\r\n        danceDecade: \"2010s\",\r\n        description: \"A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive\" +\r\n            \"fashion trends\",\r\n        dances: [\r\n            {\r\n                id: \"10\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Hustle\",\r\n                instructions:[\r\n                    \"Stand with feet shoulder-width apart\",\r\n                    \"Move side to side, shifting weight\",\r\n                    \"Add swinging arm movements\" ,\r\n                    \"Grove to the disco beat\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"11\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Disco Point\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"12\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Travolta Strut\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"13\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Robot Dance\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n    {\r\n        id: \"5\",\r\n        image: require('../assets/images/danceCategory/20s.png'),\r\n        danceDecade: \"2020s\",\r\n        description: \"A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive\" +\r\n            \"fashion trends\",\r\n        dances: [\r\n            {\r\n                id: \"10\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Hustle\",\r\n                instructions:[\r\n                    \"Stand with feet shoulder-width apart\",\r\n                    \"Move side to side, shifting weight\",\r\n                    \"Add swinging arm movements\" ,\r\n                    \"Grove to the disco beat\"\r\n                ],\r\n            },\r\n            {\r\n                id: \"11\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Disco Point\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"12\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Travolta Strut\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n            {\r\n                id: \"13\",\r\n                gifUrl:\r\n                    \"https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif\",\r\n                name: \"The Robot Dance\",\r\n                instructions:[\r\n\r\n                ],\r\n            },\r\n        ],\r\n    },\r\n];
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/constants/danceData.js b/constants/danceData.js
+--- a/constants/danceData.js	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ b/constants/danceData.js	(date 1706190407542)
+@@ -1,7 +1,6 @@
+ export default [
+     {
+         id: "0",
+-        image: require('../assets/images/danceCategory/70s.png'),
+         danceDecade: "70s",
+         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
+             "fashion trends",
+@@ -56,7 +55,6 @@
+     },
+     {
+         id: "1",
+-        image: require('../assets/images/danceCategory/80s.png'),
+         danceDecade: "80s",
+         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
+             "fashion trends",
+@@ -104,7 +102,6 @@
+     },
+     {
+         id: "2",
+-        image: require('../assets/images/danceCategory/90s.png'),
+         danceDecade: "90s",
+         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
+             "fashion trends",
+@@ -152,7 +149,6 @@
+     },
+     {
+         id: "3",
+-        image: require('../assets/images/danceCategory/00s.png'),
+         danceDecade: "2000s",
+         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
+             "fashion trends",
+@@ -200,7 +196,6 @@
+     },
+     {
+         id: "4",
+-        image: require('../assets/images/danceCategory/10s.png'),
+         danceDecade: "2010s",
+         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
+             "fashion trends",
+@@ -248,7 +243,6 @@
+     },
+     {
+         id: "5",
+-        image: require('../assets/images/danceCategory/20s.png'),
+         danceDecade: "2020s",
+         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
+             "fashion trends",
+@@ -294,4 +288,4 @@
+             },
+         ],
+     },
+-];
+\ No newline at end of file
++];
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"dancetime-rewind\",\r\n  \"main\": \"expo-router/entry\",\r\n  \"version\": \"1.0.0\",\r\n  \"scripts\": {\r\n    \"start\": \"expo start\",\r\n    \"android\": \"expo start --android\",\r\n    \"ios\": \"expo start --ios\",\r\n    \"web\": \"expo start --web\",\r\n    \"test\": \"jest --watchAll\"\r\n  },\r\n  \"jest\": {\r\n    \"preset\": \"jest-expo\"\r\n  },\r\n  \"dependencies\": {\r\n    \"@expo/vector-icons\": \"^13.0.0\",\r\n    \"@gorhom/bottom-sheet\": \"^4.5.1\",\r\n    \"@react-navigation/native\": \"^6.0.2\",\r\n    \"@react-navigation/stack\": \"^6.3.20\",\r\n    \"axios\": \"^1.6.2\",\r\n    \"deprecated-react-native-prop-types\": \"^5.0.0\",\r\n    \"expo\": \"~49.0.18\",\r\n    \"expo-dev-client\": \"~2.4.12\",\r\n    \"expo-font\": \"~11.4.0\",\r\n    \"expo-image\": \"~1.3.5\",\r\n    \"expo-linear-gradient\": \"~12.3.0\",\r\n    \"expo-linking\": \"~5.0.2\",\r\n    \"expo-router\": \"^2.0.0\",\r\n    \"expo-splash-screen\": \"~0.20.5\",\r\n    \"expo-status-bar\": \"~1.6.0\",\r\n    \"expo-system-ui\": \"~2.4.0\",\r\n    \"expo-web-browser\": \"~12.3.2\",\r\n    \"nativewind\": \"^2.0.11\",\r\n    \"patch-package\": \"^8.0.0\",\r\n    \"react\": \"18.2.0\",\r\n    \"react-dom\": \"18.2.0\",\r\n    \"react-native\": \"0.72.6\",\r\n    \"react-native-gesture-handler\": \"~2.12.0\",\r\n    \"react-native-half-modal\": \"^0.2.5\",\r\n    \"react-native-image-progress\": \"^1.2.0\",\r\n    \"react-native-modalize\": \"^2.1.1\",\r\n    \"react-native-progress-circle\": \"^2.1.0\",\r\n    \"react-native-reanimated\": \"~3.3.0\",\r\n    \"react-native-responsive-screen\": \"^1.4.2\",\r\n    \"react-native-safe-area-context\": \"4.6.3\",\r\n    \"react-native-screens\": \"~3.22.0\",\r\n    \"react-native-snap-carousel\": \"^3.9.1\",\r\n    \"react-native-vector-icons\": \"^10.0.3\",\r\n    \"react-native-virtualized-view\": \"^1.0.0\",\r\n    \"react-native-web\": \"~0.19.6\",\r\n    \"tailwindcss\": \"^3.3.2\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@babel/core\": \"^7.20.0\",\r\n    \"@types/react\": \"~18.2.14\",\r\n    \"jest\": \"^29.2.1\",\r\n    \"jest-expo\": \"~49.0.0\",\r\n    \"react-test-renderer\": \"18.2.0\",\r\n    \"typescript\": \"^5.1.3\"\r\n  },\r\n  \"overrides\": {\r\n    \"react-refresh\": \"~0.14.0\"\r\n  },\r\n  \"resolutions\": {\r\n    \"react-refresh\": \"~0.14.0\"\r\n  },\r\n  \"private\": true\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ b/package.json	(date 1706190407574)
+@@ -52,11 +52,9 @@
+   },
+   "devDependencies": {
+     "@babel/core": "^7.20.0",
+-    "@types/react": "~18.2.14",
+     "jest": "^29.2.1",
+     "jest-expo": "~49.0.0",
+-    "react-test-renderer": "18.2.0",
+-    "typescript": "^5.1.3"
++    "react-test-renderer": "18.2.0"
+   },
+   "overrides": {
+     "react-refresh": "~0.14.0"
+Index: package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package-lock.json b/package-lock.json
+--- a/package-lock.json	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ b/package-lock.json	(date 1706190407574)
+@@ -47,11 +47,9 @@
+       },
+       "devDependencies": {
+         "@babel/core": "^7.20.0",
+-        "@types/react": "~18.2.14",
+         "jest": "^29.2.1",
+         "jest-expo": "~49.0.0",
+-        "react-test-renderer": "18.2.0",
+-        "typescript": "^5.1.3"
++        "react-test-renderer": "18.2.0"
+       }
+     },
+     "node_modules/@alloc/quick-lru": {
+@@ -6622,7 +6620,8 @@
+       "version": "15.7.11",
+       "resolved": "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.11.tgz",
+       "integrity": "sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==",
+-      "devOptional": true
++      "optional": true,
++      "peer": true
+     },
+     "node_modules/@types/qs": {
+       "version": "6.9.10",
+@@ -6633,7 +6632,8 @@
+       "version": "18.2.38",
+       "resolved": "https://registry.npmjs.org/@types/react/-/react-18.2.38.tgz",
+       "integrity": "sha512-cBBXHzuPtQK6wNthuVMV6IjHAFkdl/FOPFIlkd81/Cd1+IqkHu/A+w4g43kaQQoYHik/ruaQBDL72HyCy1vuMw==",
+-      "devOptional": true,
++      "optional": true,
++      "peer": true,
+       "dependencies": {
+         "@types/prop-types": "*",
+         "@types/scheduler": "*",
+@@ -6644,7 +6644,8 @@
+       "version": "0.16.8",
+       "resolved": "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.8.tgz",
+       "integrity": "sha512-WZLiwShhwLRmeV6zH+GkbOFT6Z6VklCItrDioxUnv+u4Ll+8vKeFySoFyK/0ctcRpOmwAicELfmys1sDc/Rw+A==",
+-      "devOptional": true
++      "optional": true,
++      "peer": true
+     },
+     "node_modules/@types/stack-utils": {
+       "version": "2.0.3",
+@@ -8407,7 +8408,8 @@
+       "version": "3.1.2",
+       "resolved": "https://registry.npmjs.org/csstype/-/csstype-3.1.2.tgz",
+       "integrity": "sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==",
+-      "devOptional": true
++      "optional": true,
++      "peer": true
+     },
+     "node_modules/dag-map": {
+       "version": "1.0.2",
+@@ -18272,19 +18274,6 @@
+         "node": ">= 0.6"
+       }
+     },
+-    "node_modules/typescript": {
+-      "version": "5.3.2",
+-      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.3.2.tgz",
+-      "integrity": "sha512-6l+RyNy7oAHDfxC4FzSJcz9vnjTKxrLpDG5M2Vu4SHRVNg6xzqZp6LYSR9zjqQTu8DU/f5xwxUdADOkbrIX2gQ==",
+-      "dev": true,
+-      "bin": {
+-        "tsc": "bin/tsc",
+-        "tsserver": "bin/tsserver"
+-      },
+-      "engines": {
+-        "node": ">=14.17"
+-      }
+-    },
+     "node_modules/ua-parser-js": {
+       "version": "1.0.37",
+       "resolved": "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-1.0.37.tgz",
+Index: constants/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nexport const rapidApiKey = \"f691f67baemsh88e4e411b73a7d8p18ba59jsn03d892d8cae2\";\r\nexport const sliderImages = [\r\n    require('../assets/images/slide1a.jpg'),\r\n    //Image by pikisuperstar</a> on Freepik\r\n    require('../assets/images/slide3a.png'),\r\n    require('../assets/images/slide2a.png'),\r\n    require('../assets/images/slide4a.png'),\r\n    require('../assets/images/slide5a.png'),\r\n]\r\nexport const danceDecades = [\r\n    {\r\n        name: '70s',\r\n        image: require('../assets/images/danceCategory/70s.png'),\r\n    },\r\n    {\r\n        name: '80s',\r\n        image: require('../assets/images/danceCategory/80s.png'),\r\n    },\r\n\r\n    {\r\n        name: '90s',\r\n        image: require('../assets/images/danceCategory/90s.png'),\r\n    },\r\n    {\r\n        name: '00s',\r\n        image: require('../assets/images/danceCategory/00s.png'),\r\n    },\r\n    {\r\n        name: '10s',\r\n        image: require('../assets/images/danceCategory/10s.png'),\r\n    },\r\n    {\r\n        name: '20s',\r\n        image: require('../assets/images/danceCategory/20s.png'),\r\n    },\r\n\r\n]\r\nexport const demoExercises = [\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif\",\r\n        \"id\": \"3220\",\r\n        \"instructions\": [\r\n            \"Stand with your feet shoulder-width apart.\",\r\n            \"Bend your knees and lower your body into a squat position.\",\r\n            \"Jump explosively upwards, extending your legs and arms.\",\r\n            \"While in the air, spread your legs apart and bring your arms out to the sides.\",\r\n            \"Land softly with your feet shoulder-width apart, bending your knees to absorb the impact.\",\r\n            \"Repeat for the desired number of repetitions.\"\r\n        ],\r\n        \"name\": \"the disco finger\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"calves\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif\",\r\n        \"id\": \"3672\",\r\n        \"instructions\": [\r\n            \"Stand with your feet shoulder-width apart.\",\r\n            \"Step forward with your right foot, bending your knee and lowering your body into a lunge position.\",\r\n            \"Push off with your right foot and step back to the starting position.\",\r\n            \"Repeat the movement with your left foot, alternating legs with each step.\",\r\n            \"Continue stepping back and forth, maintaining a steady pace.\",\r\n            \"Repeat for the desired duration or number of repetitions.\"\r\n        ],\r\n        \"name\": \"The disco strut\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"glutes\",\r\n            \"calves\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a93c82108677535.5fc3684e78f67.gif\",\r\n        \"id\": \"3360\",\r\n        \"instructions\": [\r\n            \"Start on all fours with your hands directly under your shoulders and your knees directly under your hips.\",\r\n            \"Lift your knees slightly off the ground, keeping your back flat and your core engaged.\",\r\n            \"Move your right hand and left foot forward simultaneously, followed by your left hand and right foot.\",\r\n            \"Continue crawling forward, alternating your hand and foot movements.\",\r\n            \"Maintain a steady pace and keep your core tight throughout the exercise.\",\r\n            \"Continue for the desired distance or time.\"\r\n        ],\r\n        \"name\": \"bear crawl\",\r\n        \"secondaryMuscles\": [\r\n            \"core\",\r\n            \"shoulders\",\r\n            \"triceps\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://www.behance.net/gallery/108677535/Exercise-fitness-illustration-gif-workout-animation/modules/622701453\",\r\n        \"id\": \"1160\",\r\n        \"instructions\": [\r\n            \"Start in a standing position with your feet shoulder-width apart.\",\r\n            \"Lower your body into a squat position by bending your knees and placing your hands on the floor in front of you.\",\r\n            \"Kick your feet back into a push-up position.\",\r\n            \"Perform a push-up, keeping your body in a straight line.\",\r\n            \"Jump your feet back into the squat position.\",\r\n            \"Jump up explosively, reaching your arms overhead.\",\r\n            \"Land softly and immediately lower back into a squat position to begin the next repetition.\"\r\n        ],\r\n        \"name\": \"burpee\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"calves\",\r\n            \"shoulders\",\r\n            \"chest\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"leverage machine\",\r\n        \"gifUrl\": \"https://www.behance.net/gallery/108677535/Exercise-fitness-illustration-gif-workout-animation/modules/834599865\",\r\n        \"id\": \"2331\",\r\n        \"instructions\": [\r\n            \"Adjust the seat height and position yourself on the cycle cross trainer.\",\r\n            \"Place your feet on the pedals and grip the handlebars.\",\r\n            \"Start pedaling in a smooth and controlled motion.\",\r\n            \"Maintain a steady pace and increase the resistance if desired.\",\r\n            \"Continue pedaling for the desired duration of your cardio workout.\"\r\n        ],\r\n        \"name\": \"cycle cross trainer\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"glutes\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"dumbbell\",\r\n        \"gifUrl\": \"https://i.pinimg.com/originals/48/d3/18/48d318b6fd069adf7fd5ad23bf3206f6.gif\",\r\n        \"id\": \"1201\",\r\n        \"instructions\": [\r\n            \"Start in a standing position with your feet shoulder-width apart and a dumbbell in each hand.\",\r\n            \"Lower your body into a squat position, placing the dumbbells on the ground in front of you.\",\r\n            \"Kick your feet back into a push-up position, keeping your body in a straight line.\",\r\n            \"Perform a push-up, bending your elbows and lowering your chest towards the ground.\",\r\n            \"Jump your feet back towards your hands, landing in a squat position.\",\r\n            \"Stand up explosively, lifting the dumbbells off the ground and bringing them to your shoulders.\",\r\n            \"Press the dumbbells overhead, fully extending your arms.\",\r\n            \"Lower the dumbbells back to your shoulders and repeat the entire sequence for the desired number of repetitions.\"\r\n        ],\r\n        \"name\": \"dumbbell burpee\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"calves\",\r\n            \"shoulders\",\r\n            \"triceps\",\r\n            \"core\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://i.pinimg.com/originals/73/5d/b1/735db1656d07eaf2fe47090b2379d8e3.gif\",\r\n        \"id\": \"3221\",\r\n        \"instructions\": [\r\n            \"Stand with your feet shoulder-width apart.\",\r\n            \"Bend your knees and lower your body down as if you were sitting back into a chair.\",\r\n            \"Keep your chest up and your weight in your heels.\",\r\n            \"Pause for a moment at the bottom, then push through your heels to return to the starting position.\",\r\n            \"Repeat for the desired number of repetitions.\"\r\n        ],\r\n        \"name\": \"half knee bends (male)\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"glutes\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://i.pinimg.com/originals/08/ea/e5/08eae554947369281553e73425f39be0.gif\",\r\n        \"id\": \"3636\",\r\n        \"instructions\": [\r\n            \"Stand facing a wall with your feet hip-width apart.\",\r\n            \"Place your hands on the wall for support.\",\r\n            \"Engage your core and lift your right knee up towards your chest, while keeping your left foot on the ground.\",\r\n            \"Quickly switch legs, bringing your left knee up towards your chest and lowering your right foot back down.\",\r\n            \"Continue alternating legs in a running motion, bringing your knees up as high as possible.\",\r\n            \"Maintain a fast pace and keep your upper body stable throughout the exercise.\",\r\n            \"Repeat for the desired duration or number of repetitions.\"\r\n        ],\r\n        \"name\": \"high knee against wall\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"glutes\",\r\n            \"calves\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://i.pinimg.com/originals/08/70/8c/08708c4f9496c977faddeb46c1a6c605.gif\",\r\n        \"id\": \"0501\",\r\n        \"instructions\": [\r\n            \"Start in a standing position with your feet shoulder-width apart.\",\r\n            \"Lower your body into a squat position, placing your hands on the ground in front of you.\",\r\n            \"Kick your feet back, landing in a push-up position.\",\r\n            \"Perform a push-up, lowering your chest to the ground and then pushing back up.\",\r\n            \"Jump your feet forward, landing in a squat position.\",\r\n            \"Jump up explosively, reaching your arms overhead.\",\r\n            \"Land softly and immediately lower back into the squat position to begin the next repetition.\"\r\n        ],\r\n        \"name\": \"jack burpee\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"hamstrings\",\r\n            \"calves\",\r\n            \"shoulders\",\r\n            \"triceps\",\r\n            \"core\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    },\r\n    {\r\n        \"bodyPart\": \"cardio\",\r\n        \"equipment\": \"body weight\",\r\n        \"gifUrl\": \"https://i.pinimg.com/originals/48/1b/0c/481b0c5624cf7487157052813472633a.gif\",\r\n        \"id\": \"3224\",\r\n        \"instructions\": [\r\n            \"Stand with your feet together and your arms by your sides.\",\r\n            \"Jump up, spreading your feet apart and raising your arms above your head.\",\r\n            \"As you land, quickly jump back to the starting position.\",\r\n            \"Repeat for the desired number of repetitions.\"\r\n        ],\r\n        \"name\": \"jack jump (male)\",\r\n        \"secondaryMuscles\": [\r\n            \"quadriceps\",\r\n            \"calves\"\r\n        ],\r\n        \"target\": \"cardiovascular system\"\r\n    }\r\n]\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/constants/index.js b/constants/index.js
+--- a/constants/index.js	(revision a1b7cffedd011d26143513aa8ac528a0634143ef)
++++ b/constants/index.js	(date 1706190407558)
+@@ -8,30 +8,32 @@
+     require('../assets/images/slide4a.png'),
+     require('../assets/images/slide5a.png'),
+ ]
++
++
+ export const danceDecades = [
+-    {
+-        name: '70s',
+-        image: require('../assets/images/danceCategory/70s.png'),
++    {   id: '1',
++        name: '1970s',
++        image: require('../assets/images/danceCategory/70s.png') ,
+     },
+-    {
+-        name: '80s',
++    {   id: '2',
++        name: '1980s',
+         image: require('../assets/images/danceCategory/80s.png'),
+     },
+ 
+-    {
+-        name: '90s',
++    {   id: '3',
++        name: '1990s',
+         image: require('../assets/images/danceCategory/90s.png'),
+     },
+-    {
+-        name: '00s',
++    {   id: '4',
++        name: '2000s',
+         image: require('../assets/images/danceCategory/00s.png'),
+     },
+-    {
+-        name: '10s',
++    {   id: '5',
++        name: '2010s',
+         image: require('../assets/images/danceCategory/10s.png'),
+     },
+-    {
+-        name: '20s',
++    {   id: '6',
++        name: '2020s',
+         image: require('../assets/images/danceCategory/20s.png'),
+     },
+ 
