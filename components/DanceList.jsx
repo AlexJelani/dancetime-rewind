@@ -37,13 +37,13 @@ const DanceCard = ({ item, index, router }) => {
                     </Text>
 
                     <View className="flex-row items-center">
-                        <View className="rounded-full bg-blue-500 p-2 mr-2">
+                        <View className="rounded-full bg-rose-500 p-2 mr-2">
                             <Text className="text-white">7 steps</Text>
                         </View>
                     </View>
                 </View>
 
-                <TouchableOpacity  onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} className="bg-blue-500 p-2 rounded-full">
+                <TouchableOpacity  onPress={() => router.push({ pathname: '/exerciseDetails', params: item })} className="bg-rose-500 p-2 rounded-full">
                     <FontAwesome name="play-circle" size={30} color="#fff" />
                 </TouchableOpacity>
             </TouchableOpacity>
