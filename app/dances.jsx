@@ -3,6 +3,7 @@ import {Image, StatusBar, Text, TouchableOpacity, View,} from 'react-native';
 import {useLocalSearchParams, useRouter} from 'expo-router';
 import {fetchExercisesByBodypart} from '../api/exerciseDB';
 import {demoExercises} from "../constants";
+import {danceData} from "../constants/danceData"
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Ionicons from "react-native-vector-icons/Ionicons";
 import DanceList from "../components/DanceList";
@@ -16,9 +17,11 @@ LogBox.ignoreLogs(['Warning: Failed prop type']);
 
 export default function dances() {
     const router = useRouter();
-    const [dances, setDances] = useState(demoExercises);
+    const [dances, setDances] = useState(danceData);
     const item = useLocalSearchParams();
     console.log('item.image:', item?.image);
+    console.log('item data:', item); // Log the data from useLocalSearchParams
+
 
     useEffect(() => {
         if (item) {
@@ -26,8 +29,8 @@ export default function dances() {
         }
     }, [item]);
 
-    const getDances = async (bodypart) => {
-            let data = await fetchExercisesByBodypart(bodypart);
+    const getDances = async (danceDecade) => {
+            let data = await fetchExercisesByBodypart(danceDecade);
             // console.log('got data', data);
         setDances(data)
     };

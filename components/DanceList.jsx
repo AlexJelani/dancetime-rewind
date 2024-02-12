@@ -11,7 +11,8 @@ import { FontAwesome } from '@expo/vector-icons'; // Import FontAwesome from exp
 export default function DanceList({ data}) {
     const router = useRouter();
 
-
+    // Log that you are receiving data
+    console.log("Received data:", data);
 
     return (
         <FlatList
@@ -38,7 +39,7 @@ const DanceCard = ({ item, index, router }) => {
 
                     <View className="flex-row items-center">
                         <View className="rounded-full bg-rose-500 p-2 mr-2">
-                            <Text className="text-white">7 steps</Text>
+                            <Text className="text-white">{item?.dancesteps}</Text>
                         </View>
                     </View>
                 </View>

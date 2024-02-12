@@ -1,7 +1,8 @@
-export default [
+export const danceData = [
     {
         id: "0",
-        danceDecade: "70s",
+        danceDecade: "1970s",
+        image: require('../assets/images/danceCategory/70s.png') ,
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
         dances: [
@@ -24,7 +25,7 @@ export default [
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
-                dancesteps: "7 steps",
+                dancesteps: "8 steps",
                 popularby: "John Travolta",
                 instructions:[
                     "Extend one arm straight, pointing fingers to the rhythm.",
@@ -38,7 +39,7 @@ export default [
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
-                dancesteps: "7 steps",
+                dancesteps: "9 steps",
                 popularby: "John Travolta",
                 instructions:[
                     "Strut forward with confidence.",
@@ -51,7 +52,7 @@ export default [
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",
-                dancesteps: "7 steps",
+                dancesteps: "10 steps",
                 popularby: "John Travolta",
                 instructions:[
                     "Move with stiff, mechanical motions.",
@@ -63,7 +64,8 @@ export default [
     },
     {
         id: "1",
-        danceDecade: "80s",
+        danceDecade: "1980s",
+        image: require('../assets/images/danceCategory/80s.png'),
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
         dances: [
@@ -125,7 +127,8 @@ export default [
     },
     {
         id: "2",
-        danceDecade: "90s",
+        danceDecade: "1990s",
+        image: require('../assets/images/danceCategory/90s.png'),
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
         dances: [
@@ -188,6 +191,7 @@ export default [
     {
         id: "3",
         danceDecade: "2000s",
+        image: require('../assets/images/danceCategory/00s.png'),
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
         dances: [
@@ -250,6 +254,7 @@ export default [
     {
         id: "4",
         danceDecade: "2010s",
+        image: require('../assets/images/danceCategory/10s.png'),
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
         dances: [
@@ -312,6 +317,7 @@ export default [
     {
         id: "5",
         danceDecade: "2020s",
+        image: require('../assets/images/danceCategory/20s.png'),
         description: "A vibrant and eclectic decade, saw cultural shifts, disco and rock music dominance, and distinctive" +
             "fashion trends",
         dances: [

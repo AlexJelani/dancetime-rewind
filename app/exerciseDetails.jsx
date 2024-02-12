@@ -45,7 +45,7 @@ export default function exerciseDetails() {
                     className=" text-neutral-700 tracking-wide"
                 >
                     Equipment <Text className="font-bold text-neutral-800">
-                    {item?.equipment}
+                    {item?.dancesteps}
                 </Text>
                 </Animated.Text>
                 <Animated.Text
@@ -54,18 +54,18 @@ export default function exerciseDetails() {
                     className=" text-neutral-700 tracking-wide"
                 >
                     Secondary Muscles <Text className="font-bold text-neutral-800">
-                    {item?.secondaryMuscles}
+                    {item?.popularby}
                 </Text>
                 </Animated.Text>
-                <Animated.Text
-                    entering={FadeInDown.delay(300).duration(300).springify()}
-                    style={{fontSize: hp(2)}}
-                    className=" text-neutral-700 tracking-wide"
-                >
-                    Target <Text className="font-bold text-neutral-800">
-                    {item?.target}
-                </Text>
-                </Animated.Text>
+                {/*<Animated.Text*/}
+                {/*    entering={FadeInDown.delay(300).duration(300).springify()}*/}
+                {/*    style={{fontSize: hp(2)}}*/}
+                {/*    className=" text-neutral-700 tracking-wide"*/}
+                {/*>*/}
+                {/*    Target <Text className="font-bold text-neutral-800">*/}
+                {/*    {item?.target}*/}
+                {/*</Text>*/}
+                {/*</Animated.Text>*/}
 
                 <Animated.Text
                     entering={FadeInDown.delay(400).duration(300).springify()}
