@@ -5,11 +5,13 @@ import { Image } from 'expo-image';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Anticons from 'react-native-vector-icons/AntDesign';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import {SafeAreaView} from "react-native-safe-area-context";
 //TODO safeareaview
 export default function exerciseDetails() {
     const item = useLocalSearchParams();
     const router = useRouter();
     return (
+        <SafeAreaView className="flex-1" style={{ backgroundColor: 'white' }}>
         <View className="flex flex-1">
             <View className="shadow-md bg-white rounded-b-[40px]">
                 <Image
@@ -90,5 +92,6 @@ export default function exerciseDetails() {
             </ScrollView>
 
         </View>
+        </SafeAreaView>
     )
 }
