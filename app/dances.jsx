@@ -17,7 +17,7 @@ LogBox.ignoreLogs(['Warning: Failed prop type']);
 
 export default function dances() {
     const router = useRouter();
-    const [dances, setDances] = useState(danceData);
+    const [dances, setDances] = useState(demoExercises);
     const item = useLocalSearchParams();
     console.log('item.image:', item?.image);
     console.log('item data:', item); // Log the data from useLocalSearchParams

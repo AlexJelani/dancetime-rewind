@@ -39,7 +39,7 @@ const DanceCard = ({ item, index, router }) => {
 
                     <View className="flex-row items-center">
                         <View className="rounded-full bg-rose-500 p-2 mr-2">
-                            <Text className="text-white">{item?.dancesteps}</Text>
+                            <Text className="text-white">7 steps</Text>
                         </View>
                     </View>
                 </View>
