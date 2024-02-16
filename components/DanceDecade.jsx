@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import {danceDecades} from '../constants';
+import {danceData} from '../constants/danceData'
 import {useRouter} from "expo-router";
 
 
@@ -14,6 +15,9 @@ const DanceDecadeCard = ({ item, index, router }) => {
                 // Log the item.image to the console
                 console.log('Item Image:', item.image);
 
+                // Log the params to the console
+                console.log('Params:', item);
+
                 // Navigate to the '/dances' route
                 router.push({ pathname: "/dances", params: { ...item} });
             }}
@@ -23,14 +27,15 @@ const DanceDecadeCard = ({ item, index, router }) => {
         >
             <Image source={item?.image}
                    contentFit="cover"
-                   // style={{width:wp(44), height:hp(52)}}
+                // style={{width:wp(44), height:hp(52)}}
                    style={{height:150,width:150 }}
                    className="rounded-[35px] absolute"/>
+
 
             <Text
                 style={{ height: hp(10)}}
                 className="text-white font-semibold text-center tracking-wide"
-            >{item?.name}</Text>
+            >{item?.danceDecade}</Text>
 
         </TouchableOpacity>
     );
@@ -43,9 +48,9 @@ export default function DanceDecade() {
         <View className="flex-1 mx-4">
             <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'gray' }} className="font-semibold text-neutral-700">Dances</Text>
             <FlatList
-                data={danceDecades}
+                data={danceData}
                 numColumns={2}
-                keyExtractor={(item) => item.name}
+                keyExtractor={(item) => item.id} // Use item.id as the key
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ paddingBottom: 50, paddingTop: 20 }}
                 columnWrapperStyle={{

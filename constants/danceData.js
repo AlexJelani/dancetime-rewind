@@ -7,7 +7,7 @@ export const danceData = [
             "fashion trends",
         dances: [
             {
-                id: "10",
+                id: "1970_1",
                 gifUrl:
                     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
                 name: "The Hustle",
@@ -21,7 +21,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "11",
+                id: "1970_2",
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
@@ -35,7 +35,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "12",
+                id: "1970_3",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
@@ -48,7 +48,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "13",
+                id: "1970_4",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",
@@ -70,7 +70,7 @@ export const danceData = [
             "fashion trends",
         dances: [
             {
-                id: "10",
+                id: "1980_1",
                 gifUrl:
                     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
                 name: "The Hustle",
@@ -84,7 +84,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "11",
+                id: "1980_2",
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
@@ -98,7 +98,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "12",
+                id: "1980_3",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
@@ -111,7 +111,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "13",
+                id: "1980_4",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",
@@ -133,7 +133,7 @@ export const danceData = [
             "fashion trends",
         dances: [
             {
-                id: "10",
+                id: "1990_1",
                 gifUrl:
                     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
                 name: "The Hustle",
@@ -147,7 +147,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "11",
+                id: "1990_2",
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
@@ -161,7 +161,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "12",
+                id: "1990_3",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
@@ -174,7 +174,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "13",
+                id: "1990_4",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",
@@ -196,7 +196,7 @@ export const danceData = [
             "fashion trends",
         dances: [
             {
-                id: "10",
+                id: "2000_1",
                 gifUrl:
                     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
                 name: "The Hustle",
@@ -210,7 +210,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "11",
+                id: "2000_2",
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
@@ -224,7 +224,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "12",
+                id: "2000_3",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
@@ -237,7 +237,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "13",
+                id: "2000_4",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",
@@ -259,7 +259,7 @@ export const danceData = [
             "fashion trends",
         dances: [
             {
-                id: "10",
+                id: "2010_1",
                 gifUrl:
                     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
                 name: "The Hustle",
@@ -273,7 +273,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "11",
+                id: "2010_2",
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
@@ -287,7 +287,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "12",
+                id: "2010_3",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
@@ -300,7 +300,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "13",
+                id: "2010_4",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",
@@ -322,7 +322,7 @@ export const danceData = [
             "fashion trends",
         dances: [
             {
-                id: "10",
+                id: "2020_1",
                 gifUrl:
                     "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
                 name: "The Hustle",
@@ -336,7 +336,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "11",
+                id: "2020_2",
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
@@ -350,7 +350,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "12",
+                id: "2020_3",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
@@ -363,7 +363,7 @@ export const danceData = [
                 ],
             },
             {
-                id: "13",
+                id: "2020_4",
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Image, StatusBar, Text, TouchableOpacity, View,} from 'react-native';
 import {useLocalSearchParams, useRouter} from 'expo-router';
 import {fetchExercisesByBodypart} from '../api/exerciseDB';
-import {demoExercises} from "../constants";
+import {danceDecades, demoExercises} from "../constants";
 import {danceData} from "../constants/danceData"
 import {heightPercentageToDP as hp, widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -17,32 +17,28 @@ LogBox.ignoreLogs(['Warning: Failed prop type']);
 
 export default function dances() {
     const router = useRouter();
-    const [dances, setDances] = useState(demoExercises);
+    const [dances, setDances] = useState(null);
     const item = useLocalSearchParams();
-    console.log('item.image:', item?.image);
     console.log('item data:', item); // Log the data from useLocalSearchParams
 
 
     useEffect(() => {
+        // Check if item is available
         if (item) {
-            // getExercisesxercises(item.name);
+            // Now you can set the state using the item data
+            setDances(item.dances);
         }
-    }, [item]);
+    }, [item]); // Trigger useEffect when item changes
 
-    const getDances = async (danceDecade) => {
-            let data = await fetchExercisesByBodypart(danceDecade);
-            // console.log('got data', data);
-        setDances(data)
-    };
 
-    const {name, image} = item;
+    // const {name, image} = item;
     // Check if the image is a URI or a number and create the appropriate source
 
     return (
         <ScrollView>
                 <StatusBar style="light" />
                 <Image
-                    source={image}
+                    source={item?.image}
                     style={{ width: wp(100), height: hp(45) }}
                     className="rounded-b-[40px]"
                 />
@@ -56,10 +52,11 @@ export default function dances() {
             {/*dances*/}
             <View className="mx-4 space-y-3 mt-4">
                 <Text style={{fontSize:hp(3)}} className="font-semibold text-neutral-700">
-                    {name} dances
+                    {item?.danceDecade} dances
                 </Text>
                 <View className="mb-18">
-                    <DanceList data={dances} />
+                    {/* Render DanceList only if dances data is available */}
+                    {/*{dances && <DanceList data={dances} />}*/}
                 </View>
             </View>
         </ScrollView>
