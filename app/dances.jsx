@@ -17,17 +17,17 @@ LogBox.ignoreLogs(['Warning: Failed prop type']);
 
 export default function dances() {
     const router = useRouter();
-    const [dances, setDances] = useState();
+    // const [dances, setDances] = useState();
     const item = useLocalSearchParams();
     console.log("uselocalparms", item)
 
-    // Update dances state when item changes
-    useEffect(() => {
-        if (item) {
-            // Set dances state with the data from params
-            setDances(dances);
-        }
-    }, [item]);
+    // // Update dances state when item changes
+    // useEffect(() => {
+    //     if (item) {
+    //         // Set dances state with the data from params
+    //         setDances(dances);
+    //     }
+    // }, [item]);
 
 
     return (
