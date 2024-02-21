@@ -21,6 +21,9 @@ export default function dances() {
     const item = useLocalSearchParams();
     console.log("uselocalparms", item)
 
+    // Ensure item.dances is properly parsed as an array of objects
+    const dances = Array.isArray(item.dances) ? item.dances : JSON.parse(item.dances);
+
     // // Update dances state when item changes
     // useEffect(() => {
     //     if (item) {
@@ -51,7 +54,7 @@ export default function dances() {
                     {item?.danceDecade} dances
                 </Text>
                 <View className="mb-18">
-                    <DanceList data={item} />
+                    <DanceList data={dances} />
                 </View>
             </View>
         </ScrollView>

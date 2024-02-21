@@ -16,13 +16,18 @@ const DanceDecadeCard = ({ item, index, router }) => {
                 // Log the params to the console
                 console.log('Params:', item);
 
-                // Navigate to the '/dances' route
-                router.push({ pathname: "/dances", params: {
+                router.push({
+                    pathname: "/dances",
+                    params: {
                         image: item.image,
-                        dances: item.dances,
+                        dances: JSON.stringify(item.dances), // Stringify item.dances as JSON
                         id: item.id,
-                        danceDecade: item.danceDecade // Add this line to pass the danceDecade parameter
-                    } });
+                        danceDecade: item.danceDecade,
+                    }
+                });
+
+
+
             }}
             // style={{width:wp(44), height:hp(52)}}
             style={{height:150,width:150 }}
