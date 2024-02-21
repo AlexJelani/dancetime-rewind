@@ -17,22 +17,18 @@ LogBox.ignoreLogs(['Warning: Failed prop type']);
 
 export default function dances() {
     const router = useRouter();
-    const [dances, setDances] = useState(null);
+    const [dances, setDances] = useState();
     const item = useLocalSearchParams();
-    console.log('item data:', item); // Log the data from useLocalSearchParams
+    console.log("uselocalparms", item)
 
-
+    // Update dances state when item changes
     useEffect(() => {
-        // Check if item is available
         if (item) {
-            // Now you can set the state using the item data
-            setDances(item.dances);
+            // Set dances state with the data from params
+            setDances(dances);
         }
-    }, [item]); // Trigger useEffect when item changes
+    }, [item]);
 
-
-    // const {name, image} = item;
-    // Check if the image is a URI or a number and create the appropriate source
 
     return (
         <ScrollView>
@@ -55,8 +51,7 @@ export default function dances() {
                     {item?.danceDecade} dances
                 </Text>
                 <View className="mb-18">
-                    {/* Render DanceList only if dances data is available */}
-                    {/*{dances && <DanceList data={dances} />}*/}
+                    <DanceList data={item} />
                 </View>
             </View>
         </ScrollView>

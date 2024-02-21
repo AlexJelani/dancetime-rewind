@@ -7,19 +7,22 @@ import {useRouter} from "expo-router";
 
 
 const DanceDecadeCard = ({ item, index, router }) => {
-    console.log("Item:", item);
 
     return (
         <TouchableOpacity
             onPress={() => {
-                // Log the item.image to the console
-                console.log('Item Image:', item.image);
+
 
                 // Log the params to the console
                 console.log('Params:', item);
 
                 // Navigate to the '/dances' route
-                router.push({ pathname: "/dances", params: { ...item} });
+                router.push({ pathname: "/dances", params: {
+                        image: item.image,
+                        dances: item.dances,
+                        id: item.id,
+                        danceDecade: item.danceDecade // Add this line to pass the danceDecade parameter
+                    } });
             }}
             // style={{width:wp(44), height:hp(52)}}
             style={{height:150,width:150 }}
@@ -35,7 +38,7 @@ const DanceDecadeCard = ({ item, index, router }) => {
             <Text
                 style={{ height: hp(10)}}
                 className="text-white font-semibold text-center tracking-wide"
-            >{item?.danceDecade}</Text>
+            >{item.danceDecade}</Text>
 
         </TouchableOpacity>
     );
