@@ -44,7 +44,7 @@ export default function exerciseDetails() {
                     style={{fontSize: hp(2)}}
                     className=" text-neutral-700 tracking-wide"
                 >
-                    Equipment <Text className="font-bold text-neutral-800">
+                    Steps:<Text className="font-bold text-neutral-800">
                     {item?.dancesteps}
                 </Text>
                 </Animated.Text>
@@ -53,7 +53,7 @@ export default function exerciseDetails() {
                     style={{fontSize: hp(2)}}
                     className=" text-neutral-700 tracking-wide"
                 >
-                    Secondary Muscles <Text className="font-bold text-neutral-800">
+                    Popular By: <Text className="font-bold text-neutral-800">
                     {item?.popularby}
                 </Text>
                 </Animated.Text>

@@ -25,7 +25,7 @@ export const danceData = [
                 gifUrl:
                     "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
                 name: "The Disco Point",
-                dancesteps: "8 steps",
+                dancesteps: "10 steps",
                 popularby: "John Travolta",
                 instructions:[
                     "Extend one arm straight, pointing fingers to the rhythm.",
@@ -39,7 +39,7 @@ export const danceData = [
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Brooklyn Shuffle",
-                dancesteps: "9 steps",
+                dancesteps: "3 steps",
                 popularby: "John Travolta",
                 instructions:[
                     "Strut forward with confidence.",
@@ -52,7 +52,7 @@ export const danceData = [
                 gifUrl:
                     "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
                 name: "The Robot Dance",
-                dancesteps: "10 steps",
+                dancesteps: "20 steps",
                 popularby: "John Travolta",
                 instructions:[
                     "Move with stiff, mechanical motions.",
