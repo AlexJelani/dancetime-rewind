@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#F43F5E"
-      }
+      },
+      "package": "com.alexjelani.dancetimerewind"
     },
     "web": {
       "bundler": "metro",
@@ -32,8 +33,7 @@
     "plugins": [
       "expo-router"
     ],
-    "experiments": {
-    },
+    "experiments": {},
     "extra": {
       "router": {
         "origin": false
