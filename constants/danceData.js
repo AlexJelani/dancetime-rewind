@@ -264,56 +264,55 @@ export const danceData = [
         dances: [
             {
                 id: "2010_1",
-                gifUrl:
-                    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
-                name: "The Hustle",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                gifUrl:"https://j.gifs.com/KzxWz4.gif",
+                name: "The Whip/Nae Nae",
+                dancesteps: "4 steps",
+                popularby: "Silento",
                 instructions:[
-                    "Stand with feet shoulder-width apart",
-                    "Move side to side, shifting weight",
-                    "Add swinging arm movements" ,
-                    "Grove to the disco beat"
+                    "Start with arms crossed at the wrists",
+                    "Whip arms to the side while stepping back",
+                    "Nae Nae by bending arms and swaying side to side",
+                    "Add your own groove and style"
                 ],
             },
             {
                 id: "2010_2",
                 gifUrl:
-                    "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
-                name: "The Disco Point",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                    "https://media.tenor.com/zt8A1uJdny4AAAAM/backpack-kid-backpack-kid-dance.gif",
+                name: "The Floss",
+                dancesteps: "2 steps",
+                popularby: "Russell Horning Backpack Kid",
                 instructions:[
-                    "Extend one arm straight, pointing fingers to the rhythm.",
-                    "Shift weight side to side.",
-                    "Add a slight bounce to your step.",
-                    "This move works best with funky disco tunes."
+                    "Swing arms from side to side in front of your body",
+                    "While swinging, alternate crossing arms behind your body",
+                    "Continue with a steady rhythm, moving hips in opposition"
                 ],
             },
             {
                 id: "2010_3",
                 gifUrl:
-                    "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
-                name: "The Brooklyn Shuffle",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHZkOG1iM2gxb2xlMDRpODFzNWR3aHZ4Mzdib2c3NnJlbWV1eTIwbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/H1MLSXznpkxn7P0GUx/giphy.gif",
+                name: "The Milly Rock",
+                dancesteps: "4 steps",
+                popularby: "2 Milly",
                 instructions:[
-                    "Strut forward with confidence.",
-                    "Combine with disco finger-pointing.",
-                    "Channel your inner John Travolta from 'Saturday Night Fever.'"
+                    "Start with feet shoulder-width apart",
+                    "Step to the side with one foot while kicking the other foot",
+                    "Swing arms to the opposite side",
+                    "Repeat on the other side"
                 ],
             },
             {
                 id: "2010_4",
                 gifUrl:
-                    "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
-                name: "The Robot Dance",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                    "https://c.tenor.com/GoHfYHAEzmoAAAAC/tenor.gif",
+                name: "The Harlem Shake",
+                dancesteps: "3 steps",
+                popularby: "Baauer",
                 instructions:[
-                    "Move with stiff, mechanical motions.",
-                    "Mimic a robot's rigid movements.",
-                    "Perfect for funk and early hip-hop music."
+                    "Start with one person dancing while others around are still",
+                    "Suddenly, everyone starts dancing in a wild and crazy manner",
+                    "Add your own unique moves and have fun"
                 ],
             },
         ],
@@ -327,56 +326,57 @@ export const danceData = [
         dances: [
             {
                 id: "2020_1",
-                gifUrl:
-                    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWd0M3ViMjYzYWZnc3JzNnF3NjVoM3h4MGZxYmdla2Z5MXMzZnpzeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sNrRMKUUAVopq/giphy.gif",
-                name: "The Hustle",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                gifUrl:"https://media.tenor.com/ujNwFzCDKk0AAAAM/renegade-dance.gif",
+                name: "The Renegade",
+                dancesteps: "8 steps",
+                popularby: "Various",
                 instructions:[
-                    "Stand with feet shoulder-width apart",
-                    "Move side to side, shifting weight",
-                    "Add swinging arm movements" ,
-                    "Grove to the disco beat"
+                    "Start with a clap and then quickly cross arms",
+                    "Extend one arm diagonally up while kicking one leg back",
+                    "Repeat with the other arm and leg",
+                    "Add your own style and speed up for the challenge"
                 ],
             },
             {
                 id: "2020_2",
                 gifUrl:
-                    "https://gifdb.com/images/high/disco-dancing-saturday-night-fever-74pma2cn1ch5e6gt.gif",
-                name: "The Disco Point",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                    "https://c.tenor.com/ajZYOqDfo_kAAAAC/tenor.gif",
+                name: "The Savage Love",
+                dancesteps: "2 steps",
+                popularby: "Jawsh 685 & Jason Derulo",
                 instructions:[
-                    "Extend one arm straight, pointing fingers to the rhythm.",
-                    "Shift weight side to side.",
-                    "Add a slight bounce to your step.",
-                    "This move works best with funky disco tunes."
+                    "Do a quick body roll to one side",
+                    "Followed by a body roll to the other side",
+                    "Repeat and add your own style",
+                    "Sync with the catchy rhythm of the song"
                 ],
             },
             {
                 id: "2020_3",
                 gifUrl:
-                    "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
-                name: "The Brooklyn Shuffle",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                    "https://c.tenor.com/AckByyDwCfoAAAAd/tenor.gif",
+                name: "The Say So",
+                dancesteps: "5 steps",
+                popularby: "Doja Cat",
                 instructions:[
-                    "Strut forward with confidence.",
-                    "Combine with disco finger-pointing.",
-                    "Channel your inner John Travolta from 'Saturday Night Fever.'"
+                    "Start with a slight bounce on the balls of your feet",
+                    "Do a body roll while stepping to the side",
+                    "Clap your hands overhead",
+                    "Repeat on the other side and add your own flair"
                 ],
             },
             {
                 id: "2020_4",
                 gifUrl:
-                    "https://sworkit.com/wp-content/uploads/2020/06/sworkit-jumping-jack.gif",
-                name: "The Robot Dance",
-                dancesteps: "7 steps",
-                popularby: "John Travolta",
+                    "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG1reWcxM2NvemtnaDhpbjR5bHVxZ2g2YzQ0cWM1N29rczBtemU2cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f9RmupwnrxWMndrNP1/giphy.gif",
+                name: "The Blinding Lights",
+                dancesteps: "4 steps",
+                popularby: "The Weeknd",
                 instructions:[
-                    "Move with stiff, mechanical motions.",
-                    "Mimic a robot's rigid movements.",
-                    "Perfect for funk and early hip-hop music."
+                    "Start with a basic two-step",
+                    "Add arm movements as if driving a car",
+                    "Throw in spins and turns",
+                    "Sync with the energetic beat of the song"
                 ],
             },
         ],
