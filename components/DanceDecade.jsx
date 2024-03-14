@@ -4,6 +4,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import {danceDecades} from '../constants';
 import {danceData} from '../constants/danceData'
 import {useRouter} from "expo-router";
+import {UseGetAllDances} from "./hooks/getAllDancesQuery";
 
 
 const DanceDecadeCard = ({ item, index, router }) => {
@@ -51,6 +52,9 @@ const DanceDecadeCard = ({ item, index, router }) => {
 
 export default function DanceDecade() {
     const router = useRouter();
+    const {data, isLoading} = UseGetAllDances();
+    console.log('UseGetAllDances result:', data, isLoading);
+
 
     return (
         <View className="flex-1 mx-4">
