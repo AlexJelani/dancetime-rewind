@@ -20,6 +20,7 @@ export default function dances() {
     // const [dances, setDances] = useState();
     const item = useLocalSearchParams();
     console.log("uselocalparms", item)
+    console.log('Image URL:', item?.image);
 
     // Ensure item.dances is properly parsed as an array of objects
     const dances = Array.isArray(item.dances) ? item.dances : JSON.parse(item.dances);
@@ -36,8 +37,9 @@ export default function dances() {
     return (
         <ScrollView>
                 <StatusBar style="light" />
-                <Image
-                    source={item?.image}
+
+            <Image
+                    source={{uri:item?.image}}
                     style={{ width: wp(100), height: hp(45) }}
                     className="rounded-b-[40px]"
                 />
