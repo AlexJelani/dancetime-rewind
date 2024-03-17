@@ -1,59 +1,64 @@
 import React from 'react';
-import {Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import {danceDecades} from '../constants';
-import {useRouter} from "expo-router";
+import { useRouter } from "expo-router";
+import { UseGetAllDances } from "./hooks/getAllDancesQuery";
 
-
-const DanceDecadeCard = ({ item, index, router }) => {
-    console.log("Item:", item);
-
+const DanceDecadeCard = ({ item, router }) => {
     return (
         <TouchableOpacity
             onPress={() => {
-                // Log the item.image to the console
-                console.log('Item Image:', item.image);
-
-                // Navigate to the '/dances' route
-                router.push({ pathname: "/dances", params: { ...item} });
+                console.log('Params image:', item.image); // Log the image param here
+                router.push({
+                    pathname: "/dances",
+                    params: {
+                        image: item.image,
+                        dances: JSON.stringify(item.dances),
+                        id: item.id,
+                        danceDecade: item.danceDecade,
+                    }
+                });
             }}
-            // style={{width:wp(44), height:hp(52)}}
-            style={{height:150,width:150 }}
+            style={{ height: 150, width: 150 }}
             className="flex justify-end p-4 mb-4"
         >
-            <Image source={item?.image}
-                   contentFit="cover"
-                   // style={{width:wp(44), height:hp(52)}}
-                   style={{height:150,width:150 }}
-                   className="rounded-[35px] absolute"/>
-
+            <Image
+                source={{ uri: item.image }} // Use uri for Image source
+                style={{ height: 150, width: 150 }}
+                className="rounded-[35px] absolute"
+            />
             <Text
-                style={{ height: hp(10)}}
+                style={{ height: hp(10) }}
                 className="text-white font-semibold text-center tracking-wide"
-            >{item?.name}</Text>
-
+            >
+                {item.danceDecade}
+            </Text>
         </TouchableOpacity>
     );
 };
 
 export default function DanceDecade() {
     const router = useRouter();
+    const { data, isLoading } = UseGetAllDances();
+
+    if (isLoading) {
+        return <ActivityIndicator size="large" color="#0000ff" />;
+    }
 
     return (
         <View className="flex-1 mx-4">
             <Text style={{ fontSize: hp(3), fontWeight: 'bold', color: 'gray' }} className="font-semibold text-neutral-700">Dances</Text>
             <FlatList
-                data={danceDecades}
+                data={data} // Use the fetched data from UseGetAllDances hook
                 numColumns={2}
-                keyExtractor={(item) => item.name}
+                keyExtractor={(item) => item.id}
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ paddingBottom: 50, paddingTop: 20 }}
                 columnWrapperStyle={{
                     justifyContent: 'space-between',
-                    marginHorizontal: 30, // Adjust the margin as needed
-
+                    marginHorizontal: 30,
                 }}
-                renderItem={({ item, index }) => <DanceDecadeCard router={router} index={index} item={item} />}
+                renderItem={({ item }) => <DanceDecadeCard router={router} item={item} />}
             />
         </View>
     );

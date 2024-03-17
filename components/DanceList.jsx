@@ -17,7 +17,7 @@ export default function DanceList({ data}) {
     return (
         <FlatList
             data={data}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
             // contentContainerStyle={styles.listContainer}
             renderItem={({ item, index }) => <DanceCard router={router} index={index} item={item}  />}
@@ -34,12 +34,13 @@ const DanceCard = ({ item, index, router }) => {
             >
                 <View className="flex-1">
                     <Text className="text-2xl font-bold mb-2">
-                        {item?.name?.length > 20 ? item.name.slice(0, 20) + '...' : item.name}
+                        {/*{item?.name?.length > 20 ? item.name.slice(0, 20) + '...' : item.name}*/}
+                        {item.name}
                     </Text>
 
                     <View className="flex-row items-center">
                         <View className="rounded-full bg-rose-500 p-2 mr-2">
-                            <Text className="text-white">7 steps</Text>
+                            <Text className="text-white">{item.dancesteps}</Text>
                         </View>
                     </View>
                 </View>
