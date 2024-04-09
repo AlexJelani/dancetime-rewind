@@ -16,6 +16,7 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.alexjelani.dancetimerewind",
       "supportsTablet": true
     },
     "android": {
